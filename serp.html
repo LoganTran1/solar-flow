@@ -1,0 +1,1308 @@
+<!doctype html>
+<html data-component-base lang="en">
+<head>
+    <title>Solar Panel Installation - Nation Search Web Search</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAdgAAAHYBTnsmCAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANCSURBVFiFtZe9axRBFMafNwkWgo2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2dhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhY2FhZ2F">
+
+    <style media="screen">
+        /* ============================================
+           MAIN NAVIGATION
+           ============================================ */
+        .main-nav {
+            display: none;
+        }
+
+        .nav-close {
+            display: none;
+        }
+
+        .nav-restore {
+            display: none;
+        }
+
+        .main-nav a {
+            color: #4CAF50;
+            text-decoration: none;
+            margin: 0 20px;
+            padding: 8px 16px;
+            border-radius: 25px;
+            background: rgba(76, 175, 80, 0.1);
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border: 1px solid rgba(76, 175, 80, 0.3);
+        }
+
+        .main-nav a:hover {
+            background: rgba(76, 175, 80, 0.2);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(76, 175, 80, 0.2);
+        }
+
+        .main-nav a.current {
+            background: #4CAF50;
+            color: white;
+            font-weight: 600;
+            border-color: #4CAF50;
+        }
+
+        @media (max-width: 768px) {
+            .main-nav {
+                padding: 10px 5px;
+                font-size: 12px;
+            }
+            
+            .main-nav a {
+                margin: 0 8px;
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+        }
+
+        body {
+            padding-top: 0;
+        }
+        /* ============================================ */
+
+        /* Normalize CSS */
+        html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}[hidden],template{display:none}html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}.cf:after{clear:both;content:"";display:block}body{font-feature-settings:"calt" off;font-variant-ligatures:no-contextual}
+
+        /* Import Roboto Font */
+        @import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700");
+
+        body{
+            display:flex;
+            flex-direction:column;
+            color:#555;
+            font-family:Roboto,Helvetica Neue,Arial,sans-serif;
+            font-size:13px;
+            line-height:normal
+        }
+
+        .layout{
+            min-height:100%;
+            position:relative;
+            width:100%
+        }
+
+        .layout__body{
+            -webkit-text-size-adjust: 100%;
+            font-feature-settings: "calt" off;
+            font-variant-ligatures: no-contextual;
+            color: #555;
+            font-family: Roboto,Helvetica Neue,Arial,sans-serif;
+            font-size: 13px;
+            line-height: normal;
+            box-sizing: inherit;
+            margin-top: 14px;
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 1040px;
+            opacity: 1;
+        }
+
+        .layout__header{
+            box-shadow:0 .1875rem .125rem hsla(0,0%,80%,.1607843137)
+        }
+
+        .layout__mainline{
+            flex:100%;
+            max-width:650px;
+            margin:auto
+        }
+
+        .layout__mainline .search-form{
+            display:none
+        }
+
+        @media (min-width:600px){
+            .layout__mainline .search-form{
+                display:block
+            }
+        }
+
+        .layout__sidebar{
+            display:none;
+            padding:0 16px 0 0
+        }
+
+        @media (min-width:990px){
+            .layout__sidebar{
+                display:none;
+                flex:34%;
+                max-width:34%
+            }
+        }
+
+        .layout__footer{
+            margin:30px 0 0;
+            width:100%
+        }
+
+        /* Header Styles */
+        .header{
+            display:flex;
+            flex-direction:row;
+            flex-wrap:wrap;
+            min-height:60px;
+            padding:18px 10px 15px;
+            max-width:1040px;
+            margin:auto
+        }
+
+        @media (min-width:800px){
+            .header{
+                align-items:center;
+                min-height:70px
+            }
+        }
+
+        .header>div{
+            flex:1
+        }
+
+        .header .header__logo{
+            -webkit-text-size-adjust: 100%;
+            font-feature-settings: "calt" off;
+            font-variant-ligatures: no-contextual;
+            font-family: Roboto,Helvetica Neue,Arial,sans-serif;
+            font-size: 13px;
+            line-height: normal;
+            box-sizing: inherit;
+            background-color: transparent;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            background-size: contain;
+            display: block;
+            height: 40px;
+            margin-right: 20px;
+            order: -1;
+            width: 250px;
+            flex: 0 0 160px;
+            background-image: url(https://s.flocdn.com/@search/sem-assets/nation/default/nation-logo.svg);
+        }
+
+        @media (min-width:600px){
+            .header .search-form{
+                width:100%
+            }
+        }
+
+        @media (min-width:990px){
+            .header .search-form{
+                width:100%
+            }
+        }
+
+        .header .nav{
+            flex:100%
+        }
+
+        @media (min-width:600px){
+            .header .nav{
+                margin-left:17px
+            }
+        }
+
+        @media (min-width:990px){
+            .header .nav{
+                margin-left:104px
+            }
+        }
+
+        /* Search Form Styles */
+        .search-form{
+            max-width:650px
+        }
+
+        @media (min-width:1120px){
+            .search-form{
+                margin:auto
+            }
+        }
+
+        .search-form__form{
+            background-color:#fff;
+            border:1px solid transparent;
+            box-shadow:0 2px 5px 1px rgba(64,60,67,.16);
+            border-radius:24px;
+            display:flex
+        }
+
+        @media (min-width:800px){
+            .search-form__form{
+                max-width:680px;
+                width:95%;
+                margin:auto
+            }
+        }
+
+        .search-form__form>div{
+            flex:1
+        }
+
+        .search-form__form>div,.search-form__q{
+            display:flex;
+            justify-content:space-between
+        }
+
+        .search-form__q{
+            background:transparent;
+            border:0;
+            color:#333;
+            font-size:1.230769em;
+            line-height:2.375;
+            height:38px;
+            margin:0;
+            outline:none;
+            padding:22px 10px 22px 22px;
+            width:95%
+        }
+
+        .search-form__q::-ms-clear{
+            display:none
+        }
+
+        .search-form__q::-webkit-search-cancel-button{
+            -webkit-appearance:none
+        }
+
+        .search-form__separator{
+            border-left:1px solid #dfe1e5;
+            margin:5px 0
+        }
+
+        .search-form__button{
+            background:transparent;
+            border:0;
+            cursor:pointer;
+            flex:0 0 38px;
+            font-weight:500;
+            line-height:38px;
+            padding:0;
+            -webkit-user-select:none;
+            user-select:none
+        }
+
+        .search-form__button .ico{
+            -webkit-text-size-adjust: 100%;
+            font-family: inherit;
+            font-size: 100%;
+            text-transform: none;
+            cursor: pointer;
+            font-weight: 500;
+            line-height: 38px;
+            user-select: none;
+            box-sizing: inherit;
+            background-image: url(https://s.flocdn.com/@search/sem-assets/info/dark-blue-search-icon.svg);
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            height: 38px;
+            width: 50px;
+        }
+
+        .search-form__button--highlighted{
+            background-color:#535265
+        }
+
+        .search-form__clear{
+            display:none;
+            width:5%
+        }
+
+        .search-form__clear,.search-form__clear--active{
+            background-image:url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJDMTcuNTMgMiAyMiA2LjQ3IDIyIDEyQzIyIDE3LjUzIDE3LjUzIDIyIDEyIDIyQzYuNDcgMjIgMiAxNy41MyAyIDEyQzIgNi40NyA2LjQ3IDIgMTIgMlpNMTIgNEM5LjIzIDQgNyA2LjIzIDcgOUw3IDExSDE3VjlDMTcgNi4yMyAxNC43NyA0IDEyIDRaTTEyIDIwQzE0Ljc3IDIwIDE3IDE3Ljc3IDE3IDE1VjEzSDdWMTVDNyAxNy43NyA5LjIzIDIwIDEyIDIwWiIgZmlsbD0iIzMzMyIvPgo8L3N2Zz4K');
+            background-position:50% 50%;
+            background-repeat:no-repeat;
+            background-size:contain;
+            height:100%;
+            margin-right:10px
+        }
+
+        .search-form__clear--active{
+            -webkit-text-size-adjust: 100%;
+            font-feature-settings: "calt" off;
+            font-variant-ligatures: no-contextual;
+            color: #555;
+            font-family: Roboto,Helvetica Neue,Arial,sans-serif;
+            font-size: 13px;
+            line-height: normal;
+            box-sizing: inherit;
+            background-image: url(https://s.flocdn.com/@search/sem-assets/info/new-close-icon.svg);
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            background-size: contain;
+            height: 100%;
+            margin-right: 10px;
+            display: block;
+            width: 24px;
+            cursor: pointer;
+        }
+
+        /* Main Results Styles */
+        .mainline-results{
+            background:#ddd;
+            padding:5px 0
+        }
+
+        @media (min-width:600px){
+            .mainline-results{
+                background-color:#fff;
+                padding:15px
+            }
+        }
+
+        .mainline-results__label{
+            -webkit-text-size-adjust: 100%;
+            font-feature-settings: "calt" off;
+            font-variant-ligatures: no-contextual;
+            line-height: normal;
+            box-sizing: inherit;
+            margin: .67em 0;
+            font-family: Roboto;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #333;
+            font-size: 2rem;
+        }
+
+        .mainline-results>div{
+            background-color:#fff;
+            box-shadow:0 2px 1px rgba(0,0,0,.1),0 0 1px rgba(0,0,0,.1);
+            margin:5px 10px;
+            padding:5px 8px
+        }
+
+        @media (min-width:600px){
+            .mainline-results>div{
+                box-shadow:none;
+                padding:0
+            }
+        }
+
+        @media (min-width:990px){
+            .mainline-results>div{
+                margin:0
+            }
+        }
+
+        /* Google Ads Styles */
+        .ads-google-top__gcsa {
+            -webkit-text-size-adjust: 100%;
+            font-feature-settings: "calt" off;
+            font-variant-ligatures: no-contextual;
+            color: #555;
+            font-family: Roboto,Helvetica Neue,Arial,sans-serif;
+            font-size: 13px;
+            line-height: normal;
+            box-sizing: inherit;
+            margin: -4px -4px -4px 0;
+            width: 100%;
+            height: auto;
+        }
+
+        .ads-google-top__label{
+            color:#7f7f7f;
+            font-size:14px;
+            line-height:20px;
+            font-weight:400;
+            display:none;
+            margin:.5em 0
+        }
+
+        @media (max-width:599px){
+            .ads-google-top__label{
+                display:block
+            }
+        }
+
+        /* Web Results Styles */
+        .web-google{
+            background-color:inherit;
+            color:#333;
+            line-height:1.4
+        }
+
+        .web-google b{
+            font-weight:400
+        }
+
+        .web-google__label{
+            color:#7f7f7f;
+            font-size:12px;
+            line-height:14px;
+            display:block;
+            font-weight:400;
+            padding:8px 0;
+            position:relative;
+            margin:1em 0
+        }
+
+        @media (min-width:600px){
+            .web-google__label{
+                padding:0 0 8px
+            }
+        }
+
+        .web-google__label:after{
+            border-top:1px solid #e7e7e7;
+            bottom:0;
+            content:" ";
+            left:-8px;
+            position:absolute;
+            right:-8px
+        }
+
+        @media (min-width:600px){
+            .web-google__label:after{
+                display:none
+            }
+        }
+
+        .web-google__result{
+            margin:0;
+            padding:16px 0;
+            position:relative
+        }
+
+        @media (min-width:600px){
+            .web-google__result{
+                padding:12px 0
+            }
+
+            .web-google__result:first-of-type{
+                padding-top:6px
+            }
+        }
+
+        .web-google__result:after{
+            border-top:1px solid #e7e7e7;
+            bottom:0;
+            content:" ";
+            left:-8px;
+            position:absolute;
+            right:-8px
+        }
+
+        @media (min-width:600px){
+            .web-google__result:after{
+                display:none
+            }
+        }
+
+        .web-google__result:last-child.web-google__result:after{
+            display:none
+        }
+
+        .web-google__title{
+            text-decoration:none
+        }
+
+        .web-google__title,.web-google__url{
+            color:#7f7f7f;
+            font-size:14px;
+            line-height:20px
+        }
+
+        .web-google__url{
+            word-break:break-all
+        }
+
+        .web-google__description{
+            color:#7f7f7f;
+            font-size:14px;
+            line-height:20px
+        }
+
+        /* Pagination Styles */
+        .pagination{
+            border:10px solid #e7e7e7;
+            border-top-width:0;
+            display:flex;
+            font-size:14px;
+            justify-content:flex-end;
+            padding:40px 30px;
+            margin-top:60px;
+        }
+
+        @media (min-width:600px){
+            .pagination{
+                border:none;
+                padding:1em 1em 2em 0
+            }
+        }
+
+        .pagination__list{
+            display:flex;
+            justify-content:flex-end;
+            width:100%
+        }
+
+        @media (min-width:600px){
+            .pagination__list{
+                justify-content:flex-start
+            }
+        }
+
+        .pagination__num{
+            display:none;
+            border-radius:2px
+        }
+
+        @media (min-width:600px){
+            .pagination__num{
+                color:#212121;
+                display:block;
+                padding:10px 14px;
+                text-align:center;
+                text-decoration:none
+            }
+        }
+
+        @media (min-width:600px){
+            .pagination__num--active{
+                border:1px solid #212121;
+                cursor:default;
+                height:36px;
+                width:36px
+            }
+        }
+
+        .pagination__num--next-prev{
+            align-items:center;
+            background:#0b9443;
+            color:#fff;
+            display:flex;
+            font-size:14px;
+            font-weight:700;
+            height:4em;
+            justify-content:center;
+            text-decoration:none;
+            text-transform:uppercase;
+            width:48%
+        }
+
+        @media (min-width:600px){
+            .pagination__num--next-prev{
+                background:transparent;
+                color:inherit;
+                font-weight:400;
+                height:auto;
+                text-transform:none;
+                width:auto
+            }
+        }
+
+        .pagination__num--next{
+            margin-left:4%
+        }
+
+        @media (min-width:600px){
+            .pagination__num--next{
+                margin-left:0
+            }
+        }
+
+        .pagination__num--disabled{
+            opacity:.25
+        }
+
+        @media (min-width:600px){
+            .pagination__num--disabled.pagination__num--prev{
+                display:none
+            }
+        }
+
+        /* Hide PREV/NEXT buttons on mobile */
+        @media (max-width: 599px) {
+            .pagination__num--next-prev {
+                display: none !important;
+            }
+        }
+
+        /* Footer Styles */
+        .footer{
+            color:#72798f;
+            font-size:13px;
+            padding:2em 0;
+            text-align:center;
+            width:100%
+        }
+
+        @media (min-width:400px){
+            .footer{
+                font-size:13px
+            }
+        }
+
+        .footer .copyright{
+            flex:100%;
+            margin:1em 0 0
+        }
+
+        .footer .footer-desktop .links{
+            display:none;
+            justify-content:space-around;
+            flex:none;
+            list-style:none;
+            margin:0;
+            padding:0
+        }
+
+        .footer .footer-desktop .links li{
+            margin-left:.5em;
+            padding-left:1em;
+            position:relative
+        }
+
+        .footer .footer-desktop .links li:before{
+            content:"•";
+            position:absolute;
+            left:0
+        }
+
+        .footer .footer-desktop .links li:first-child{
+            margin-left:0;
+            padding-left:0
+        }
+
+        .footer .footer-desktop .links li:first-child:before{
+            content:""
+        }
+
+        @media (min-width:400px){
+            .footer .footer-desktop .links li{
+                margin-left:1em;
+                padding-left:1.2em
+            }
+        }
+
+        .footer .footer-desktop .links a{
+            color:inherit;
+            text-decoration:none
+        }
+
+        @media (min-width:600px){
+            .footer .footer-desktop .links{
+                display:inline-flex
+            }
+        }
+
+        .footer .footer-mobile .links{
+            justify-content:space-around;
+            flex:none;
+            list-style:none;
+            padding:0
+        }
+
+        .footer .footer-mobile .links li{
+            margin-left:.5em;
+            padding-left:1em;
+            position:relative;
+            display:inline-flex
+        }
+
+        .footer .footer-mobile .links li:before{
+            content:"•";
+            position:absolute;
+            left:0
+        }
+
+        .footer .footer-mobile .links li:first-child{
+            margin-left:0;
+            padding-left:0
+        }
+
+        .footer .footer-mobile .links li:first-child:before{
+            content:""
+        }
+
+        @media (min-width:400px){
+            .footer .footer-mobile .links li{
+                margin-left:1em;
+                padding-left:1.2em
+            }
+        }
+
+        .footer .footer-mobile .links a{
+            color:inherit;
+            text-decoration:none
+        }
+
+        @media (min-width:600px){
+            .footer .footer-mobile{
+                display:none
+            }
+        }
+
+        /* Sponsored Result Styles - Matching Nation.com exactly */
+        .sponsored-results {
+            background: white;
+            margin: 0;
+            padding: 0;
+            border: none;
+            visibility: visible;
+            height: auto;
+            display: block;
+            width: 100%;
+        }
+
+        .sponsored-result {
+            background: white;
+            border: none;
+            border-radius: 0;
+            padding: 12px 0;
+            margin: 0;
+            border-bottom: none;
+            font-family: Roboto,Helvetica Neue,Arial,sans-serif;
+            font-size: 13px;
+            line-height: normal;
+        }
+
+        .sponsored-result:last-child {
+            border-bottom: none;
+        }
+
+        .sponsored-result:hover {
+            box-shadow: none;
+            border-color: transparent;
+        }
+
+        .sponsored-header {
+            display: block;
+            margin-bottom: 0;
+        }
+
+        .sponsored-icon {
+            display: none;
+        }
+
+        .sponsored-content {
+            width: 100%;
+            padding: 8px 0;
+        }
+
+        .sponsored-title {
+            font-size: 16px;
+            font-weight: 400;
+            color: #545454;
+            margin-bottom: 0;
+            line-height: 1.3;
+            text-decoration: none;
+            display: block;
+            font-family: arial,sans-serif;
+        }
+
+        .sponsored-title:hover {
+            text-decoration: underline;
+        }
+
+        .sponsored-meta {
+            font-size: 14px;
+            color: #545454;
+            margin: 0 0 3px 0;
+            line-height: 1.4;
+            font-family: arial,sans-serif;
+        }
+
+        .sponsored-meta .sponsored-label {
+            font-weight: bold;
+        }
+
+        .sponsored-description {
+            font-size: 13px;
+            color: #545454;
+            line-height: 1.4;
+            margin-bottom: 8px;
+            font-family: arial,sans-serif;
+        }
+
+        .visit-btn {
+            -webkit-text-size-adjust: 100%;
+            font-family: arial,sans-serif;
+            text-decoration: none;
+            text-transform: none;
+            display: flex;
+            box-sizing: border-box;
+            overflow: hidden;
+            font-weight: 700;
+            background-color: #0e50c4;
+            border-radius: 20px;
+            border: 2px solid #dadce0;
+            font-size: 24px;
+            line-height: 36px;
+            max-height: 55px;
+            margin-bottom: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-top: 10px;
+            padding-bottom: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 20px;
+            color: #ffffff;
+            -webkit-box-orient: horizontal;
+            flex-direction: row;
+            -webkit-box-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.1s ease;
+        }
+
+        .visit-btn:hover {
+            background-color: #1a5bcd;
+        }
+
+        /* Related Searches - Exact Nation.com styling */
+        .related-searches {
+            -webkit-text-size-adjust: 100%;
+            font-feature-settings: "calt" off;
+            font-variant-ligatures: no-contextual;
+            color: #555;
+            font-family: Roboto,Helvetica Neue,Arial,sans-serif;
+            font-size: 13px;
+            line-height: normal;
+            border-top-width: 0px;
+            border-bottom-width: 0px;
+            border-left-width: 0px;
+            border-right-width: 0px;
+            width: 100%;
+            box-sizing: inherit;
+            visibility: visible;
+            height: 103px;
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+
+        .related-searches-content {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .related-item {
+            -webkit-text-size-adjust: 100%;
+            font-family: arial,sans-serif;
+            max-width: 100%;
+            display: flex;
+            box-sizing: border-box;
+            overflow: hidden;
+            color: #1a0dab;
+            width: 50%;
+            flex-shrink: 1;
+            -webkit-box-orient: horizontal;
+            flex-direction: row;
+            -webkit-box-pack: start;
+            justify-content: flex-start;
+            -webkit-box-align: start;
+            align-items: flex-start;
+            text-decoration: none;
+            cursor: pointer;
+            padding: 5px 0;
+        }
+
+        .related-item-content {
+            -webkit-text-size-adjust: 100%;
+            font-family: arial,sans-serif;
+            color: #1a0dab;
+            max-width: 100%;
+            display: flex;
+            -webkit-box-align: start;
+            align-items: flex-start;
+            box-sizing: border-box;
+            overflow: hidden;
+            flex-shrink: 1;
+            -webkit-box-orient: horizontal;
+            flex-direction: row;
+        }
+
+        .related-item-content span {
+            color: #1a0dab;
+        }
+
+        .related-item-icon {
+            -webkit-text-size-adjust: 100%;
+            font-family: arial,sans-serif;
+            color: #000000;
+            flex-shrink: 0;
+            display: flex;
+            box-sizing: border-box;
+            overflow: hidden;
+            max-height: 30px;
+            max-width: 30px;
+            -webkit-box-orient: horizontal;
+            flex-direction: row;
+            -webkit-box-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            align-items: center;
+            margin-right: 8px;
+        }
+
+        .related-item:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- DEV NAV - REMOVE BEFORE PRODUCTION -->
+    <div class="layout">
+        <div class="layout__header">
+            <div class="header">
+                <div class="search-form">
+                    <form class="search-form__form" action="/serp" id="search" onsubmit="return handleSearch()">
+                        <div>
+                            <input
+                                class="search-form__q"
+                                id="q"
+                                maxlength="2048"
+                                name="q"
+                                autocomplete="off"
+                                title="Search"
+                                type="search"
+                                value="Solar Panel Installation"
+                                aria-label="Search"
+                                aria-haspopup="false"
+                                role="combobox"
+                                aria-autocomplete="both"
+                                dir="ltr"
+                                spellcheck="false"/>
+                            <div class="search-form__clear--active" style="cursor: pointer;"></div>
+                        </div>
+                        <span class="search-form__separator"></span>
+                        <button class="search-form__button" aria-label="Nation Search" type="submit">
+                            <div class="ico"></div>
+                        </button>
+                    </form>
+                </div>
+                
+                <a class="header__logo" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTYwIDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8dGV4dCB4PSI0MCIgeT0iMjgiIGZvbnQtZmFtaWx5PSJSb2JvdG8sIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjMzMzIj5OYXRpb248L3RleHQ+CjxyZWN0IHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgeD0iNiIgeT0iNiIgZmlsbD0iI0Y1OTYyMyIgcng9IjE0Ii8+Cjx0ZXh0IHg9IjIwIiB5PSIyNSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+4piFPC90ZXh0Pgo8L3N2Zz4K');" href="/?sc=vegMzBoXeUQ300"></a>
+            </div>
+        </div>
+
+        <div class="layout__body">
+            <div class="layout__mainline">
+                <div class="mainline-results mainline-results__web">
+                    <h1 class="mainline-results__label">Results for "<span id="search-term">Solar Panel Installation</span>"</h1>
+                    
+                    <!-- Google Ads Section -->
+                    <div class="ads-google-top">
+                        <h3 class="ads-google-top__label">Ads</h3>
+                        <div class="ads-google-top__gcsa">
+                            <!-- Sponsored Results Section -->
+                            <div class="sponsored-results">
+                                <div class="sponsored-result">
+                                    <div class="sponsored-content">
+                                        <a href="#" class="sponsored-title" onclick="handleSponsoredClick('Aceleri Renewables')">Macauba: 90,000 more jobs - Aceleri boosts careers - Commitment to the future</a>
+                                        <div class="sponsored-meta"><span class="sponsored-label">Sponsored</span> - https://www.acelenrenovaveis.com.br</div>
+                                        <div class="sponsored-description">Aceleri Renewables will create opportunities for the local economy through bio-diesel. Advancing local development with renewable energy innovation and sustainability. Seja Aceleri Renováveis.</div>
+                                        <button class="visit-btn" onclick="handleVisitClick('Aceleri Renewables')">Visit Website</button>
+                                    </div>
+                                </div>
+
+                                <div class="sponsored-result">
+                                    <div class="sponsored-content">
+                                        <a href="#" class="sponsored-title" onclick="handleSponsoredClick('HomeAdvisor Electrical')">Just Enter Your Zip Code - Lighting Experts</a>
+                                        <div class="sponsored-meta"><span class="sponsored-label">Sponsored</span> - https://www.homeadvisor.com/electrical</div>
+                                        <div class="sponsored-description">Read reviews, view cost estimates, and get matched with electricians near you.</div>
+                                        <button class="visit-btn" onclick="handleVisitClick('HomeAdvisor Electrical')">Visit Website</button>
+                                    </div>
+                                </div>
+
+                                <div class="sponsored-result">
+                                    <div class="sponsored-content">
+                                        <a href="#" class="sponsored-title" onclick="handleSponsoredClick('AnswerPedia Energy')">Why Homes Need Energy Audits - Boost Home Energy Savings Tips</a>
+                                        <div class="sponsored-meta"><span class="sponsored-label">Sponsored</span> - https://www.answerpedia.co/energy_audit/upgrades</div>
+                                        <div class="sponsored-description">Maximize Energy Efficiency In Your Home With A Professional Audit That Finds Hidden Waste</div>
+                                        <button class="visit-btn" onclick="handleVisitClick('AnswerPedia Energy')">Visit Website</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Web Results -->
+                    <div class="web-google">
+                        <span class="web-google__label">Web Results</span>
+                        
+                        <div class="web-google__result">
+                            <a class="web-google__title" href="#" onclick="handleWebResultClick('SunGoldPower')"><b>Home</b> &amp; <b>Residential Solar</b> Kits - SunGoldPower</a><br>
+                            <span class="web-google__url">sungoldpower.com</span><br>
+                            <span class="web-google__description">Shop online at SunGoldPower for complete <b>solar power</b> kits for <b>homes</b>. Explore our selection of <b>solar panel</b> kits and bring renewable energy to your <b>home</b> with&nbsp;...</span>
+                        </div>
+                        
+                        <div class="web-google__result">
+                            <a class="web-google__title" href="#" onclick="handleWebResultClick('GoGreenSolar')">Shop <b>Solar Panels</b> for <b>Home</b> | GoGreenSolar</a><br>
+                            <span class="web-google__url">www.gogreensolar.com</span><br>
+                            <span class="web-google__description">Our <b>solar panels</b> cost between $300 to $400 per <b>panel</b>, which is a competitive price considering the brands&#39; top-tier quality and high standards. Some solar&nbsp;...</span>
+                        </div>
+                        
+                        <div class="web-google__result">
+                            <a class="web-google__title" href="#" onclick="handleWebResultClick('Department of Energy')">Homeowner&#39;s Guide to Going <b>Solar</b> - Department of Energy</a><br>
+                            <span class="web-google__url">www.energy.gov</span><br>
+                            <span class="web-google__description">Buying a <b>solar energy system</b> will likely increase your <b>home&#39;s</b> value. A recent study found that <b>solar panels</b> are viewed as upgrades, just like a renovated&nbsp;...</span>
+                        </div>
+                        
+                        <div class="web-google__result">
+                            <a class="web-google__title" href="#" onclick="handleWebResultClick('Tesla')"><b>Home Solar Panels</b> and <b>Systems</b> | Tesla</a><br>
+                            <span class="web-google__url">www.tesla.com</span><br>
+                            <span class="web-google__description">Tesla uses <b>solar panels</b> that offer a sleek and modern take on traditional panels. With our proprietary mounting hardware, panels can be installed close to your&nbsp;...</span>
+                        </div>
+                    </div>
+
+                    <!-- Related Searches - Exact Nation.com styling -->
+                    <div class="related-searches">
+                        <div style="color: #70757a; font-size: 13px; margin-bottom: 10px;">Related searches</div>
+                        <div class="related-searches-content">
+                            <a href="#" class="related-item" onclick="handleRelatedSearch('Solar Roof Installation Near Me')">
+                                <div class="related-item-content">
+                                    <div class="related-item-icon">🔍</div>
+                                    <span>Solar Roof Installation Near Me</span>
+                                </div>
+                            </a>
+                            <a href="#" class="related-item" onclick="handleRelatedSearch('Roofing and Solar')">
+                                <div class="related-item-content">
+                                    <div class="related-item-icon">🔍</div>
+                                    <span>Roofing and Solar</span>
+                                </div>
+                            </a>
+                            <a href="#" class="related-item" onclick="handleRelatedSearch('Water Systems')">
+                                <div class="related-item-content">
+                                    <div class="related-item-icon">🔍</div>
+                                    <span>Water Systems</span>
+                                </div>
+                            </a>
+                            <a href="#" class="related-item" onclick="handleRelatedSearch('Water Power Systems')">
+                                <div class="related-item-content">
+                                    <div class="related-item-icon">🔍</div>
+                                    <span>Water Power Systems</span>
+                                </div>
+                            </a>
+                            <a href="#" class="related-item" onclick="handleRelatedSearch('Solar Panel Installation')">
+                                <div class="related-item-content">
+                                    <div class="related-item-icon">🔍</div>
+                                    <span>Solar Panel Installation</span>
+                                </div>
+                            </a>
+                            <a href="#" class="related-item" onclick="handleRelatedSearch('Solar Power Systems for Homes')">
+                                <div class="related-item-content">
+                                    <div class="related-item-icon">🔍</div>
+                                    <span>Solar Power Systems for Homes</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        <div class="pagination__list">
+                            <span class="pagination__num pagination__num--active">1</span>
+                            <a class="pagination__num" data-page-number="2" href="#" onclick="handlePagination(2)">2</a>
+                            <a class="pagination__num" data-page-number="3" href="#" onclick="handlePagination(3)">3</a>
+                            <a class="pagination__num" data-page-number="4" href="#" onclick="handlePagination(4)">4</a>
+                            <a class="pagination__num" data-page-number="5" href="#" onclick="handlePagination(5)">5</a>
+                            <span class="pagination__num pagination__num--next-prev pagination__num--prev pagination__num--disabled">Prev</span>
+                            <a class="pagination__num pagination__num--next-prev pagination__num--next" data-page-number="2" href="#" onclick="handlePagination(2)">Next</a>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Search Form -->
+                    <div class="search-form">
+                        <form class="search-form__form" action="/serp" id="search2" onsubmit="return handleSearch()">
+                            <div>
+                                <input
+                                    class="search-form__q"
+                                    id="q2"
+                                    maxlength="2048"
+                                    name="q"
+                                    autocomplete="off"
+                                    title="Search"
+                                    type="search"
+                                    value="Solar Panel Installation"
+                                    aria-label="Search"
+                                    aria-haspopup="false"
+                                    role="combobox"
+                                    aria-autocomplete="both"
+                                    dir="ltr"
+                                    spellcheck="false"/>
+                                <div class="search-form__clear--active" style="cursor: pointer;"></div>
+                            </div>
+                            <span class="search-form__separator"></span>
+                            <button class="search-form__button" aria-label="Nation Search" type="submit">
+                                <div class="ico"></div>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="layout__footer">
+            <div class="footer">
+                <div class="footer-desktop">
+                    <ul class="links">
+                        <li><a href="https://solartechsolutions.com/terms/terms-of-use">Terms</a></li>
+                        <li><a href="https://solartechsolutions.com/terms/privacy-policy">Privacy Policy</a></li>
+                        <li><a href="https://solartechsolutions.com/contact" target="_blank">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-mobile">
+                    <ul class="links">
+                        <li><a href="https://solartechsolutions.com/terms/terms-of-use">Terms</a></li>
+                        <li><a href="https://solartechsolutions.com/terms/privacy-policy">Privacy Policy</a></li>
+                        <li><a href="https://solartechsolutions.com/contact" target="_blank">Contact Us</a></li>
+                    </ul>
+                </div>
+                <p class="copyright">© 2025 SolarTech Solutions, LLC</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get search term from URL parameters
+        function getSearchTerm() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('q') || 'Solar Panel Installation';
+        }
+
+        // Initialize page with search term
+        function initializePage() {
+            const searchTerm = getSearchTerm();
+            document.getElementById('q').value = searchTerm;
+            document.getElementById('q2').value = searchTerm;
+            document.getElementById('search-term').textContent = searchTerm;
+            document.title = `${searchTerm} - Nation Search Web Search`;
+            
+            console.log('Nation SERP loaded for:', searchTerm);
+        }
+
+        // Handle search form submission
+        function handleSearch() {
+            const query = document.getElementById('q').value || document.getElementById('q2').value;
+            if (query.trim()) {
+                // Update URL with new search term
+                const newUrl = window.location.pathname + '?q=' + encodeURIComponent(query);
+                window.location.href = newUrl;
+            }
+            return false; // Prevent default form submission
+        }
+
+        // Handle sponsored result clicks
+        function handleSponsoredClick(siteName) {
+            console.log('Sponsored result clicked:', siteName);
+            alert('🎯 Sponsored Result Clicked!\n\n' +
+                  'Site: ' + siteName + '\n\n' +
+                  'This would normally:\n' +
+                  '• Navigate to the advertiser website\n' +
+                  '• Track the click for conversion analytics\n' +
+                  '• Generate revenue from the sponsored placement');
+        }
+
+        // Handle visit button clicks
+        function handleVisitClick(siteName) {
+            console.log('Visit button clicked:', siteName);
+            alert('🌐 Visit Website Clicked!\n\n' +
+                  'Site: ' + siteName + '\n\n' +
+                  'This would normally:\n' +
+                  '• Open the advertiser website in a new tab\n' +
+                  '• Track the click for analytics\n' +
+                  '• Generate revenue from the click');
+        }
+
+        // Handle web result clicks
+        function handleWebResultClick(siteName) {
+            console.log('Web result clicked:', siteName);
+            alert('🔍 Web Result Clicked!\n\n' +
+                  'Site: ' + siteName + '\n\n' +
+                  'This would normally:\n' +
+                  '• Navigate to the website\n' +
+                  '• Track user engagement\n' +
+                  '• Provide organic search results');
+        }
+
+        // Handle pagination clicks
+        function handlePagination(page) {
+            console.log('Pagination clicked:', page);
+            alert('📄 Pagination Clicked!\n\n' +
+                  'Page: ' + page + '\n\n' +
+                  'This would normally:\n' +
+                  '• Load the next page of results\n' +
+                  '• Update the URL with page parameter\n' +
+                  '• Show new search results');
+            return false;
+        }
+
+        // Handle clear button functionality
+        function setupClearButtons() {
+            document.querySelectorAll('.search-form__clear--active').forEach(clearBtn => {
+                clearBtn.addEventListener('click', function() {
+                    const input = this.parentElement.querySelector('.search-form__q');
+                    input.value = '';
+                    input.focus();
+                    this.style.display = 'none';
+                });
+            });
+
+            // Show/hide clear button based on input
+            document.querySelectorAll('.search-form__q').forEach(input => {
+                input.addEventListener('input', function() {
+                    const clearBtn = this.parentElement.querySelector('.search-form__clear--active');
+                    if (this.value.trim()) {
+                        clearBtn.style.display = 'block';
+                    } else {
+                        clearBtn.style.display = 'none';
+                    }
+                });
+
+                // Handle Enter key
+                input.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        handleSearch();
+                    }
+                });
+            });
+        }
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if we should hide dev nav (for embedded use)
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('hideDevNav') === 'true') {
+                const devNav = document.querySelector('.dev-nav');
+                if (devNav) {
+                    devNav.style.display = 'none';
+                }
+                // Remove body padding when dev nav is hidden
+                document.body.style.paddingTop = '0';
+                
+                // Add mobile iframe styles to prevent horizontal scrolling
+                document.body.style.maxWidth = '390px';
+                document.body.style.overflowX = 'hidden';
+                document.body.style.overflowY = 'auto';
+                document.body.style.margin = '0 auto';
+                document.querySelector('.layout').style.maxWidth = '390px';
+                document.querySelector('.layout').style.overflowX = 'hidden';
+                document.querySelector('.layout').style.margin = '0 auto';
+                
+                console.log('Dev navigation hidden for embedded view');
+            }
+            
+            initializePage();
+            setupClearButtons();
+            
+            console.log('Nation SERP page fully loaded and interactive');
+        });
+    </script>
+</body>
+</html>

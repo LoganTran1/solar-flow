@@ -1,0 +1,101 @@
+╔══════════════════════════════════════════════════════════════════╗
+║                        SolarFlow v6 - Quick Reference            ║
+╠══════════════════════════════════════════════════════════════════╣
+║                                                                  ║
+║  🚀 START SERVER:                                                ║
+║      PowerShell:   Set-Location "C:\Users\Logan.Tran\Desktop\solarflow-v6"; node server.js ║
+║      Batch File:   Double-click start.bat                       ║
+║                                                                  ║
+║  💬 FOR FUTURE CONVERSATIONS, SAY:                              ║
+║      "Can you run the SolarFlow v6 server using the PowerShell  ║
+║       command, then give me the local links?"                   ║
+║                                                                  ║
+║  🌐 SINGLE PORT: 8084 (Everything runs here!)                   ║
+║                                                                  ║
+║  📱 KEY URLS:                                                    ║
+║      Main Demo:    http://localhost:8084/rsoc-page.html         ║
+║      Hero Page:    http://localhost:8084/index.html             ║
+║      Solar Flow:   http://localhost:8084/flow.html              ║
+║      Nation SERP:  http://localhost:8084/serp.html              ║
+║                                                                  ║
+║  🔄 TEST FLOW:                                                   ║
+║      1. Open: http://localhost:8084/rsoc-page.html              ║
+║      2. Click any blue KW block (keyword block)                 ║
+║      3. Nation.com SERP opens in new tab                       ║
+║      4. See sponsored results & revenue tracking!                ║
+║                                                                  ║
+║  📝 KEY TERMS (IMPORTANT FOR CONTEXT):                          ║
+║      • KW blocks = keyword blocks = iframes = blue sections     ║
+║      • Nation logo = Orange circle with white star (⭐)         ║
+║      • SERP = Search Engine Results Page (serp.html)            ║
+║      • RSOC = Content marketing page (rsoc-page.html)           ║
+║      • Dev Nav = Red developer navigation bar                   ║
+║                                                                  ║
+║  🎨 STYLING PHILOSOPHY (v6 UPDATES):                            ║
+║      ✅ CSS Variables: --primary: #f5a623 (orange)              ║
+║      ✅ KW Blocks: Blue (#5865f2) to orange hover              ║
+║      ✅ Fixed Heights: All KW blocks exactly 80px tall          ║
+║      ✅ Mobile-First: 2-line headlines, centered logo          ║
+║      ✅ Always be 100% truthful about CSS copy accuracy        ║
+║                                                                  ║
+║  🔧 DEVELOPER NAVIGATION:                                        ║
+║      ✅ Red nav bar on every page for easy testing              ║
+║      ✅ Jump between all pages instantly                        ║
+║      ✅ Current page highlighted                                 ║
+║      ⚠️  REMOVE before production (search "DEV NAV")            ║
+║                                                                  ║
+║  📱 MOBILE OPTIMIZATIONS (v6):                                  ║
+║      ✅ KW blocks appear above the fold                         ║
+║      ✅ Headlines forced to 2 lines (1.6rem font)              ║
+║      ✅ Nation logo centered on mobile                          ║
+║      ✅ Minimal white space between elements                    ║
+║      ✅ Author/date on single line: "By Name • Date"            ║
+║      ✅ Sources hidden until "Read More" clicked                ║
+║                                                                  ║
+║  💰 REVENUE FEATURES:                                            ║
+║      ✅ KW blocks lead to Nation SERP with sponsored ads        ║
+║      ✅ Grey sponsored results with bold "Sponsored" labels     ║
+║      ✅ Blue related searches (#1a0dab)                         ║
+║      ✅ Click tracking analytics in console                     ║
+║      ✅ Professional Nation.com design builds trust            ║
+║                                                                  ║
+║  🛠️ DEPLOYMENT READY:                                            ║
+║      ✅ Single port configuration (8084)                        ║
+║      ✅ Production-ready code with dev nav removal              ║
+║      ✅ GitHub Pages compatible                                  ║
+║      ✅ CSS variable system for easy theming                    ║
+║      ✅ Mobile-responsive revenue generation                    ║
+║                                                                  ║
+║  ✨ CSS STYLING STANDARDS (CRITICAL):                           ║
+║      ✅ Always be 100% truthful about copy accuracy             ║
+║      ✅ Copy complete CSS from inspect tool when provided       ║
+║      ✅ Use CSS variables: var(--primary), var(--body-font)     ║
+║      ✅ Acknowledge font/browser rendering differences          ║
+║      ✅ Ask for clarification when styling isn't exact          ║
+║      ✅ Test mobile-first, then enhance for desktop            ║
+║                                                                  ║
+║  🔍 NATION.COM SERP FEATURES:                                   ║
+║      ✅ Nation logo with white star (⭐) in orange circle       ║
+║      ✅ Dark blue search icons from Nation CDN                  ║
+║      ✅ Grey sponsored results (#545454) with bold labels       ║
+║      ✅ Blue related searches (#1a0dab)                         ║
+║      ✅ Proper spacing and authentic Nation styling             ║
+║                                                                  ║
+║  📋 TESTING CHECKLIST:                                          ║
+║      □ Server responds on port 8084                             ║
+║      □ KW blocks visible above fold on mobile                   ║
+║      □ Headlines span exactly 2 lines on mobile                 ║
+║      □ Nation logo displays with star on all pages             ║
+║      □ KW blocks open SERP in new tab with search term         ║
+║      □ Sponsored results show grey text + bold labels          ║
+║      □ Related searches appear blue                             ║
+║      □ Dev navigation works between all pages                   ║
+║      □ Mobile responsive across different screen sizes          ║
+║                                                                  ║
+║  🎯 CONTEXT FOR NEW CONVERSATIONS:                              ║
+║      "I'm working on SolarFlow v6 in solarflow-v6 folder.      ║
+║       Please read README.md and QUICK_START.txt for context.   ║
+║       Key terms: KW blocks = keyword blocks = iframes.         ║
+║       Always be truthful about CSS copy accuracy."             ║
+║                                                                  ║
+╚══════════════════════════════════════════════════════════════════╝
