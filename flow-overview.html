@@ -496,24 +496,41 @@
         /* Stage 1 Toggle Buttons */
         .stage-toggle-buttons {
             display: flex;
-            gap: 5px;
-            margin-top: 10px; /* Space after title */
+            gap: 3px; /* Reduced from 5px */
+            margin-top: 10px;
             margin-bottom: 0px;
-            flex-wrap: wrap;
+            flex-wrap: nowrap; /* Changed from wrap to nowrap */
             justify-content: center;
+            width: 100%;
         }
 
         .toggle-btn {
-            padding: 6px 12px;
+            padding: 4px 8px; /* Reduced padding */
             border: 2px solid #e9ecef;
-            border-radius: 15px;
+            border-radius: 12px; /* Smaller radius */
             background: #f8f9fa;
             color: #495057;
-            font-size: 0.75rem;
+            font-size: 0.65rem; /* Smaller font */
             font-weight: 500;
             cursor: pointer;
             transition: all 0.2s;
-            min-height: 32px;
+            min-height: 28px; /* Smaller height */
+            flex: 1; /* Make buttons flex to fit */
+            text-align: center;
+            white-space: nowrap; /* Prevent text wrapping */
+        }
+
+        /* iPhone 12 specific optimizations */
+        @media (max-width: 390px) and (min-width: 375px) {
+            .toggle-btn {
+                padding: 3px 6px; /* Even smaller padding for iPhone 12 */
+                font-size: 0.6rem; /* Smaller font for iPhone 12 */
+                min-height: 26px;
+            }
+            
+            .stage-toggle-buttons {
+                gap: 2px; /* Tighter gap for iPhone 12 */
+            }
         }
 
         .toggle-btn:hover {
@@ -1527,12 +1544,12 @@
                         </div>
                         
                         <!-- Linktree mockup div (hidden by default) -->
-                        <div id="stage1-linktree-div" class="page-iframe linktree-mockup" style="display: none; background: #ffffff !important; padding: 0; overflow: hidden; position: relative; cursor: pointer;" 
+                        <div id="stage1-linktree-div" class="page-iframe linktree-mockup" style="display: none; background: #ffffff !important; padding: 0; overflow: hidden; position: absolute; cursor: pointer; top: 0; left: 0; width: 100%; height: 100%;" 
                              onclick="handleLinktreeClick()" 
                              title="Click to open Nation.com solar article">
                             <img src="Linktree-pic.png" 
                                  alt="Solar Linktree Screenshot" 
-                                 style="width: 102%; height: 102%; object-fit: cover; object-position: center top; transform: scale(1.02); pointer-events: none;"
+                                 style="width: 100%; height: 100%; object-fit: cover; object-position: center center; pointer-events: none; position: absolute; top: 0; left: 0;"
                                  onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'padding: 20px; text-align: center; color: #666;\'>Image not found: Linktree-pic.png</div>'" />
                         </div>
                     </div>
@@ -1756,11 +1773,12 @@
             }
         });
         
-        // THREE SIMPLE FUNCTIONS - GLOBAL SCOPE
+        // THREE SIMPLE FUNCTIONS - GLOBAL SCOPE - FIXED
         function showSocial() {
             console.log('Showing social');
             document.getElementById('stage1-iframe').style.display = 'none';
             document.getElementById('stage1-social-div').style.display = 'block';
+            document.getElementById('stage1-linktree-div').style.display = 'none'; // FIX: Hide Linktree
             
             // Update buttons
             document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.remove('active'));
@@ -1770,6 +1788,7 @@
         function showThankYou() {
             console.log('Showing thank you page');
             document.getElementById('stage1-social-div').style.display = 'none';
+            document.getElementById('stage1-linktree-div').style.display = 'none'; // FIX: Hide Linktree
             document.getElementById('stage1-iframe').style.display = 'block';
             document.getElementById('stage1-iframe').src = 'flow.html?step=6&hideDevNav=true';
             
@@ -1781,51 +1800,13 @@
         function showDisqualify() {
             console.log('Showing disqualify page');
             document.getElementById('stage1-social-div').style.display = 'none';
+            document.getElementById('stage1-linktree-div').style.display = 'none'; // FIX: Hide Linktree
             document.getElementById('stage1-iframe').style.display = 'block';
             document.getElementById('stage1-iframe').src = 'flow.html?step=4&autoSelect=mostly-shade&showPopup=true&hideDevNav=true';
             
             // Update buttons
             document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.remove('active'));
             document.querySelector('[onclick="showDisqualify()"]').classList.add('active');
-        }
-
-        // SUPER SIMPLE - Just switch what's in the iPhone frame - GLOBAL FUNCTION
-        function loadStage1(version) {
-            console.log(`🔴 BUTTON CLICKED! Switching to: ${version}`);
-            alert(`Button clicked: ${version}`); // Visual confirmation
-            
-            const iframe = document.getElementById('stage1-iframe');
-            const socialDiv = document.getElementById('stage1-social-div');
-            
-            console.log('iframe:', iframe);
-            console.log('socialDiv:', socialDiv);
-            
-            // Update button colors
-            document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.remove('active'));
-            
-            if (version === 'social') {
-                // Show social ad
-                iframe.style.display = 'none';
-                socialDiv.style.display = 'block';
-                document.querySelector('[onclick="loadStage1(\'social\')"]').classList.add('active');
-                console.log('✅ Showing social');
-                
-            } else if (version === 'thankyou') {
-                // Show thank you page
-                socialDiv.style.display = 'none';
-                iframe.style.display = 'block';
-                iframe.src = 'flow.html?step=6&hideDevNav=true';
-                document.querySelector('[onclick="loadStage1(\'thankyou\')"]').classList.add('active');
-                console.log('✅ Loading thank you page...');
-                
-            } else if (version === 'disqualify') {
-                // Show disqualifying offer
-                socialDiv.style.display = 'none';
-                iframe.style.display = 'block';
-                iframe.src = 'flow.html?step=4&autoSelect=mostly-shade&showPopup=true&hideDevNav=true';
-                document.querySelector('[onclick="loadStage1(\'disqualify\')"]').classList.add('active');
-                console.log('✅ Loading disqualify page...');
-            }
         }
 
         // Log page load
