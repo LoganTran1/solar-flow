@@ -5,18 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SolarFlow - User Journey Overview</title>
     
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Interactive solar panel marketing flow demonstration showing user journey from social media to content engagement.">
+    <meta name="keywords" content="solar panels, solar energy, user journey, marketing flow, lead generation">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="SolarFlow - User Journey Overview">
+    <meta property="og:description" content="Interactive demonstration of solar panel marketing user journey">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>☀️</text></svg>" type="image/svg+xml">
+    
     <script>
         // GLOBAL FUNCTIONS - LOADED FIRST
         let autoRotateInterval;
-        let currentView = 0; // 0 = social, 1 = thank you, 2 = disqualify
-        const views = ['social', 'thankyou', 'disqualify'];
+        let currentView = 0; // 0 = social, 1 = thank you, 2 = disqualify, 3 = linktree
+        const views = ['social', 'thankyou', 'disqualify', 'linktree'];
         const ROTATION_INTERVAL = 5000; // 5 seconds between rotations
+        
+        // Handle Linktree click to navigate to external URL
+        function handleLinktreeClick() {
+            // Stop auto-rotation on user interaction
+            stopAutoRotation();
+            
+            // Open the Nation.com article in a new tab
+            window.open('https://www.nation.com/how-solar-energy-reduces-costs-and-boosts-home-value-en-us/', '_blank');
+        }
         
         // Main view functions
         function showSocial() {
-            console.log('Showing social ad');
+            // Stop auto-rotation on user interaction
+            stopAutoRotation();
+            
             document.getElementById('stage1-iframe').style.display = 'none';
             document.getElementById('stage1-social-div').style.display = 'block';
+            document.getElementById('stage1-linktree-div').style.display = 'none';
             
             // Update button highlighting
             document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.remove('active'));
@@ -30,8 +54,11 @@
         }
         
         function showThankYou() {
-            console.log('Showing thank you page');
+            // Stop auto-rotation on user interaction
+            stopAutoRotation();
+            
             document.getElementById('stage1-social-div').style.display = 'none';
+            document.getElementById('stage1-linktree-div').style.display = 'none';
             document.getElementById('stage1-iframe').style.display = 'block';
             document.getElementById('stage1-iframe').src = 'flow.html?step=6&hideDevNav=true';
             
@@ -47,8 +74,11 @@
         }
         
         function showDisqualify() {
-            console.log('Showing disqualify page');
+            // Stop auto-rotation on user interaction
+            stopAutoRotation();
+            
             document.getElementById('stage1-social-div').style.display = 'none';
+            document.getElementById('stage1-linktree-div').style.display = 'none';
             document.getElementById('stage1-iframe').style.display = 'block';
             document.getElementById('stage1-iframe').src = 'flow.html?step=4&autoSelect=mostly-shade&showPopup=true&hideDevNav=true';
             
@@ -63,19 +93,42 @@
             currentView = 2;
         }
         
+        function showLinktree() {
+            // Stop auto-rotation on user interaction
+            stopAutoRotation();
+            
+            document.getElementById('stage1-iframe').style.display = 'none';
+            document.getElementById('stage1-social-div').style.display = 'none';
+            
+            const linktreeDiv = document.getElementById('stage1-linktree-div');
+            linktreeDiv.style.display = 'block';
+            linktreeDiv.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+            
+            // Update button highlighting
+            document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector('[onclick="showLinktree()"]').classList.add('active');
+            
+            // Update bottom section
+            document.getElementById('stage1-title').textContent = 'Linktree';
+            document.getElementById('stage1-description').innerHTML = '<p style="margin: 0; color: #555; line-height: 1.6;">User clicks on Linktree button linking out to article.</p>';
+            
+            currentView = 3;
+        }
+        
         // Auto-rotation function
         function rotateView() {
             // Move to next view
-            currentView = (currentView + 1) % 3;
-            console.log('Auto-rotating to view #' + currentView);
+            currentView = (currentView + 1) % 4;
             
             // Show appropriate view
             if (currentView === 0) {
                 showSocial();
             } else if (currentView === 1) {
                 showThankYou();
-            } else {
+            } else if (currentView === 2) {
                 showDisqualify();
+            } else {
+                showLinktree();
             }
         }
         
@@ -88,7 +141,6 @@
             
             // Set up new rotation interval
             autoRotateInterval = setInterval(rotateView, ROTATION_INTERVAL);
-            console.log('Auto-rotation started with ' + (ROTATION_INTERVAL/1000) + ' second interval');
         }
         
         // Stop auto-rotation
@@ -96,7 +148,6 @@
             if (autoRotateInterval) {
                 clearInterval(autoRotateInterval);
                 autoRotateInterval = null;
-                console.log('Auto-rotation stopped');
             }
         }
         
@@ -1264,12 +1315,134 @@
                 letter-spacing: -0.6px; /* Tighter letter spacing to help fit */
             }
         }
+
+        /* Linktree Mockup Styles - Exact match to screenshot */
+        .linktree-mockup {
+            background: linear-gradient(180deg, #7dd3fc 0%, #06b6d4 100%) !important;
+            padding: 0 !important;
+            overflow-y: auto !important;
+            height: 100% !important;
+            display: flex !important;
+            flex-direction: column !important;
+            width: 100% !important;
+            position: relative !important;
+        }
+
+        .linktree-container {
+            padding: 40px 30px 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .linktree-header {
+            text-align: center;
+            margin-bottom: 32px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .linktree-avatar {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .linktree-name {
+            color: #1a1a1a !important;
+            font-size: 22px !important;
+            font-weight: bold !important;
+            margin: 0 0 12px 0 !important;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+            text-align: center !important;
+            line-height: 1.2 !important;
+        }
+
+        .linktree-bio {
+            color: #4a5568 !important;
+            font-size: 15px !important;
+            margin: 0 !important;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+            font-weight: 400 !important;
+            line-height: 1.4 !important;
+            text-align: center !important;
+            max-width: 250px !important;
+        }
+
+        .linktree-links {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 24px;
+            max-width: 280px;
+        }
+
+        .linktree-link {
+            background: #f7fafc !important;
+            color: #2d3748 !important;
+            text-decoration: none !important;
+            padding: 14px 18px !important;
+            border-radius: 25px !important;
+            text-align: left !important;
+            font-weight: 600 !important;
+            font-size: 14px !important;
+            transition: all 0.2s ease !important;
+            border: 1px solid #e2e8f0 !important;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            min-height: 48px !important;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        .linktree-link:hover {
+            transform: translateY(-1px) !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+            background: #ffffff !important;
+        }
+
+        .content-page-link:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 20px rgba(245, 166, 35, 0.4) !important;
+        }
+
+        /* Section headers styling */
+        .section-header {
+            background: #4a90e2 !important;
+            color: white !important;
+            padding: 10px 20px !important;
+            border-radius: 25px !important;
+            text-align: center !important;
+            font-weight: bold !important;
+            font-size: 13px !important;
+            margin: 8px 0 !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+
+        .social-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Pulse animation for click indicator */
+        @keyframes pulse {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
     </style>
 </head>
 <body>
-    <!-- Conference Mode Toggle -->
-    <button class="conference-toggle" onclick="toggleConferenceMode()">📱 Conference Mode</button>
-
     <div class="flow-container">
 
         <!-- Page Title (Desktop Only) -->
@@ -1292,6 +1465,7 @@
                         <button class="toggle-btn active" onclick="showSocial()">Socials</button>
                         <button class="toggle-btn" onclick="showThankYou()">Thank You Page</button>
                         <button class="toggle-btn" onclick="showDisqualify()">Disqualifying Offer</button>
+                        <button class="toggle-btn" onclick="showLinktree()">Linktree</button>
                     </div>
                 </div>
 
@@ -1350,6 +1524,16 @@
                                     <button class="fb-learn-more">Learn More</button>
                                 </div>
                             </div>
+                        </div>
+                        
+                        <!-- Linktree mockup div (hidden by default) -->
+                        <div id="stage1-linktree-div" class="page-iframe linktree-mockup" style="display: none; background: #ffffff !important; padding: 0; overflow: hidden; position: relative; cursor: pointer;" 
+                             onclick="handleLinktreeClick()" 
+                             title="Click to open Nation.com solar article">
+                            <img src="Linktree-pic.png" 
+                                 alt="Solar Linktree Screenshot" 
+                                 style="width: 102%; height: 102%; object-fit: cover; object-position: center top; transform: scale(1.02); pointer-events: none;"
+                                 onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'padding: 20px; text-align: center; color: #666;\'>Image not found: Linktree-pic.png</div>'" />
                         </div>
                     </div>
                 </div>
@@ -2553,12 +2737,18 @@
                         scroll-snap-type: x mandatory !important;
                         -webkit-overflow-scrolling: touch !important;
                         width: 100vw !important;
-                        height: calc(100vh - 120px) !important;
+                        height: calc(100vh - 80px) !important;
                         position: relative !important;
                         margin: 0 !important;
                         padding: 0 !important;
                         border: none !important;
+                        scroll-behavior: smooth !important;
+                        scrollbar-width: none !important;
+                        -ms-overflow-style: none !important;
                     `;
+                    
+                    // Hide scrollbar for WebKit browsers
+                    flowStages.style.setProperty('-webkit-scrollbar', 'none', 'important');
                     
                     // Ensure each stage is properly sized
                     const stages = flowStages.querySelectorAll('.flow-stage');
@@ -2569,22 +2759,38 @@
                         stage.style.width = '100vw';
                         stage.style.flexShrink = '0';
                         stage.style.scrollSnapAlign = 'start';
+                        // Add smooth vertical scrolling within each stage
+                        stage.style.overflowY = 'auto';
+                        stage.style.webkitOverflowScrolling = 'touch';
+                        stage.style.scrollBehavior = 'smooth';
                     });
                     
                     console.log('Mobile scrolling CSS applied');
                     
                     setTimeout(() => {
+                        // CRITICAL: Force start at Stage 1 (index 0) - ALWAYS first
                         flowStages.scrollLeft = 0;
-                        console.log('Reset to Stage 1');
+                        
+                        // Double-check and force again if needed
+                        setTimeout(() => {
+                            if (flowStages.scrollLeft !== 0) {
+                                console.log('🔧 Secondary reset needed');
+                                flowStages.scrollLeft = 0;
+                            }
+                        }, 100);
+                        
+                        console.log('✅ FORCED START: Stage 1 at position 0px');
                         console.log('ScrollWidth:', flowStages.scrollWidth, 'ClientWidth:', flowStages.clientWidth);
                         console.log('Can scroll:', flowStages.scrollWidth > flowStages.clientWidth);
                         
                         // Ensure first dot is active
                         if (scrollDots.length > 0) {
-                            scrollDots.forEach(dot => dot.classList.remove('active'));
-                            scrollDots[0].classList.add('active');
+                            scrollDots.forEach((dot, index) => {
+                                dot.classList.toggle('active', index === 0);
+                            });
+                            console.log('✅ First scroll indicator activated');
                         }
-                    }, 100);
+                    }, 200);
                     
                     console.log('✅ Mobile scroll enabled');
                     
@@ -2593,17 +2799,20 @@
                         scrollIndicators.style.display = 'flex';
                     }
                     
-                    // Add scroll event listener for dot indicators
+                    // Add scroll event listener for dot indicators - IMPROVED
                     flowStages.addEventListener('scroll', function() {
                         const scrollLeft = flowStages.scrollLeft;
                         const stageWidth = flowStages.clientWidth;
                         const currentStage = Math.round(scrollLeft / stageWidth);
                         
-                        // Update active dot
+                        console.log(`📱 Scroll Event: position=${scrollLeft}px, stage=${currentStage}`);
+                        
+                        // Update active dot with bounds checking
                         scrollDots.forEach((dot, index) => {
-                            dot.classList.toggle('active', index === currentStage);
+                            const isActive = index === Math.max(0, Math.min(currentStage, scrollDots.length - 1));
+                            dot.classList.toggle('active', isActive);
                         });
-                    });
+                    }, { passive: true });
                     
                     // Add click handlers for dots
                     scrollDots.forEach((dot, index) => {
