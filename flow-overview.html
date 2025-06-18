@@ -496,24 +496,41 @@
         /* Stage 1 Toggle Buttons */
         .stage-toggle-buttons {
             display: flex;
-            gap: 5px;
-            margin-top: 10px; /* Space after title */
+            gap: 3px; /* Reduced from 5px */
+            margin-top: 10px;
             margin-bottom: 0px;
-            flex-wrap: wrap;
+            flex-wrap: nowrap; /* Changed from wrap to nowrap */
             justify-content: center;
+            width: 100%;
         }
 
         .toggle-btn {
-            padding: 6px 12px;
+            padding: 4px 8px; /* Reduced padding */
             border: 2px solid #e9ecef;
-            border-radius: 15px;
+            border-radius: 12px; /* Smaller radius */
             background: #f8f9fa;
             color: #495057;
-            font-size: 0.75rem;
+            font-size: 0.65rem; /* Smaller font */
             font-weight: 500;
             cursor: pointer;
             transition: all 0.2s;
-            min-height: 32px;
+            min-height: 28px; /* Smaller height */
+            flex: 1; /* Make buttons flex to fit */
+            text-align: center;
+            white-space: nowrap; /* Prevent text wrapping */
+        }
+
+        /* iPhone 12 specific optimizations */
+        @media (max-width: 390px) and (min-width: 375px) {
+            .toggle-btn {
+                padding: 3px 6px; /* Even smaller padding for iPhone 12 */
+                font-size: 0.6rem; /* Smaller font for iPhone 12 */
+                min-height: 26px;
+            }
+            
+            .stage-toggle-buttons {
+                gap: 2px; /* Tighter gap for iPhone 12 */
+            }
         }
 
         .toggle-btn:hover {
