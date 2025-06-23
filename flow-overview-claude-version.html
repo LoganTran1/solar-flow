@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SolarFlow - User Journey Overview</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Interactive solar panel marketing flow demonstration showing user journey from social media to content engagement.">
+    <meta name="keywords" content="solar panels, solar energy, user journey, marketing flow, lead generation">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>☀️</text></svg>" type="image/svg+xml">
+    
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f9fa;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .page-title {
+            text-align: center;
+            margin: 40px 20px 30px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .page-title h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin: 0;
+        }
+
+        .path-button {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            text-decoration: none;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+            align-self: center;
+            transform: translateY(4px);
+        }
+
+        .path-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 3px 10px rgba(76, 175, 80, 0.35);
+        }
+
+        .flow-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px 20px;
+        }
+        .flow-stages {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .flow-stage {
+            flex: 1;
+            min-width: 350px;
+            max-width: 400px;
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stage-header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 10px 0;
+        }
+
+        .stage-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .flow-stage:nth-child(2) .stage-title,
+        .flow-stage:nth-child(3) .stage-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        /* Stage 1 Toggle Buttons */
+        .stage-toggle-buttons {
+            display: flex;
+            gap: 5px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .toggle-btn {
+            padding: 6px 10px;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            background: #f8f9fa;
+            color: #495057;
+            font-size: 0.7rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            min-height: 32px;
+            flex: 1;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .toggle-btn:hover {
+            border-color: #f5a623;
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .toggle-btn.active {
+            border-color: #f5a623;
+            background: #f5a623;
+            color: white;
+        }
+        /* Phone Frame */
+        .phone-frame {
+            background: #1f1f1f;
+            border-radius: 35px;
+            padding: 8px;
+            margin: 10px auto;
+            width: 300px;
+            height: 650px;
+            position: relative;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            border-radius: 27px;
+            overflow: hidden;
+            position: relative;
+            background: white;
+        }
+
+        .page-iframe {
+            width: 430px;
+            height: 932px;
+            border: none;
+            border-radius: 27px;
+            transform: scale(0.70);
+            transform-origin: center center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -215px;
+            margin-top: -466px;
+        }
+        /* Social Ad Mockup */
+        .social-ad-mockup {
+            background: #f0f2f5;
+            padding: 0;
+            overflow-y: auto;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .facebook-ad {
+            background: white;
+            margin: 8px;
+            border-radius: 8px;
+            overflow: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 700px;
+        }
+
+        .fb-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 16px;
+            flex-shrink: 0;
+        }
+
+        .fb-profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .fb-avatar img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .fb-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .fb-name {
+            font-weight: 600;
+            font-size: 18px;
+            color: #1c1e21;
+            line-height: 1.2;
+        }
+
+        .fb-sponsored {
+            font-size: 15px;
+            color: #65676b;
+            line-height: 1.2;
+        }
+
+        .fb-library-id {
+            font-size: 13px;
+            color: #65676b;
+            line-height: 1.2;
+            margin-top: 2px;
+        }
+
+        .fb-menu {
+            color: #65676b;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 12px;
+            border-radius: 50%;
+        }
+        .fb-menu:hover {
+            background: #f2f3f4;
+        }
+
+        .fb-content {
+            padding: 0 16px 12px;
+            flex-shrink: 0;
+        }
+
+        .fb-text {
+            font-size: 15px;
+            line-height: 1.3;
+            color: #1c1e21;
+            margin: 0;
+        }
+
+        .fb-media {
+            position: relative;
+            flex: 1;
+            margin-bottom: 12px;
+            min-height: 520px;
+        }
+
+        .fb-video-container {
+            position: relative;
+            background: transparent;
+            height: 100%;
+            width: 100%;
+            min-height: 520px;
+        }
+
+        .fb-video-placeholder {
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=600&h=800&fit=crop&crop=entropy') center/cover;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 520px;
+        }
+        .fb-video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.2);
+        }
+
+        .fb-play-button {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.2s;
+            padding-left: 4px;
+        }
+
+        .fb-play-button:hover {
+            background: white;
+            transform: scale(1.05);
+        }
+
+        .solarflow-logo-overlay {
+            position: absolute;
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .solarflow-logo-bg {
+            background: #f5a623;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 16px;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .fb-cta {
+            padding: 20px 16px;
+            border-top: 1px solid #e4e6ea;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+        }
+
+        .fb-cta-text {
+            flex: 1;
+        }
+
+        .fb-url {
+            font-size: 13px;
+            color: #65676b;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .fb-headline {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1c1e21;
+            margin-bottom: 4px;
+            line-height: 1.2;
+        }
+        .fb-description {
+            font-size: 15px;
+            color: #65676b;
+            line-height: 1.2;
+        }
+
+        .fb-learn-more {
+            background: #e4e6ea;
+            color: #65676b;
+            border: 1px solid #dadde1;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .fb-learn-more:hover {
+            background: #d8dadf;
+        }
+
+        /* Linktree Mockup */
+        .linktree-mockup {
+            background: linear-gradient(180deg, #7dd3fc 0%, #06b6d4 100%);
+            padding: 0;
+            overflow-y: auto;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            position: relative;
+            cursor: pointer;
+        }
+        /* Key Terms Section */
+        .key-terms {
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .option-description {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #f5a623;
+            margin-bottom: 15px;
+        }
+
+        .option-description p {
+            margin: 0;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Keyword blocks for stage 2 */
+        .keyword-block-header {
+            font-size: 0.7rem;
+            color: #666;
+            font-weight: normal;
+            margin-bottom: 8px;
+            width: 280px;
+            text-align: left;
+        }
+        .keyword-search-terms {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            width: 280px;
+        }
+
+        .keyword-search-term {
+            height: 40px;
+            width: 100%;
+            display: flex;
+            background: #5865f2;
+            border-radius: 4px;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            align-items: center;
+            justify-content: flex-start;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: white;
+            border: none;
+            font-family: 'Source Serif Pro', Book Antiqua, Palatino, serif;
+        }
+
+        .keyword-search-term:hover {
+            background: #f5a623;
+            transform: translateY(-1px);
+        }
+
+        .serp-visit-btn {
+            background-color: #0e50c4;
+            border-radius: 20px;
+            border: 2px solid #dadce0;
+            font-size: 14px;
+            line-height: 20px;
+            max-height: 32px;
+            margin: 0 4px;
+            padding: 6px 12px;
+            color: #ffffff;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.1s ease;
+            font-weight: 700;
+        }
+        .serp-visit-btn:hover {
+            background-color: #1a5bcd;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .page-title {
+                display: none;
+            }
+
+            .flow-container {
+                padding: 0;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                overflow: hidden;
+            }
+
+            .flow-stages {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                overflow-y: hidden;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                width: 100vw;
+                height: calc(100vh - 80px);
+                scroll-behavior: smooth;
+                gap: 0;
+            }
+
+            .flow-stage {
+                min-width: 100vw;
+                width: 100vw;
+                max-width: 100vw;
+                padding: 15px 20px 80px;
+                margin: 0;
+                flex-shrink: 0;
+                scroll-snap-align: start;
+                height: 100%;
+                box-sizing: border-box;
+                background: white;
+                border-radius: 0;
+                box-shadow: none;
+                border-right: 3px solid #f5a623;
+                overflow-y: auto;
+            }
+            .stage-header {
+                margin-bottom: 15px;
+                padding: 8px 0 15px 0;
+            }
+
+            .stage-title {
+                font-size: 1.2rem;
+                margin-bottom: 0;
+            }
+
+            .flow-stage:nth-child(2) .stage-title,
+            .flow-stage:nth-child(3) .stage-title {
+                font-size: 1.4rem;
+                font-weight: 700;
+            }
+
+            .phone-frame {
+                width: 280px;
+                height: 600px;
+                margin: 5px auto 15px;
+            }
+
+            .page-iframe {
+                transform: scale(0.62);
+            }
+
+            .toggle-btn {
+                padding: 4px 8px;
+                font-size: 0.65rem;
+                min-height: 28px;
+            }
+
+            /* Scroll indicators */
+            .scroll-indicators {
+                display: flex;
+                justify-content: center;
+                gap: 8px;
+                position: fixed;
+                bottom: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: rgba(255,255,255,0.95);
+                border-radius: 20px;
+                padding: 8px 16px;
+                backdrop-filter: blur(10px);
+                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+                z-index: 1000;
+            }
+            .scroll-dot {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: #ccc;
+                transition: all 0.3s ease;
+                cursor: pointer;
+            }
+
+            .scroll-dot.active {
+                background: #f5a623;
+                transform: scale(1.2);
+            }
+
+            .scroll-dot:hover {
+                background: #f5a623;
+                opacity: 0.7;
+            }
+        }
+
+        /* Hide scroll indicators on desktop */
+        @media (min-width: 769px) {
+            .scroll-indicators {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="flow-container">
+        <!-- Page Title (Desktop Only) -->
+        <div class="page-title">
+            <h1>Flow Overview</h1>
+            <a href="index.html" class="path-button">Path</a>
+        </div>
+
+        <div class="flow-stages">
+            <!-- Stage 1: Multiple Options -->
+            <div class="flow-stage">
+                <div class="stage-header">
+                    <!-- Stage 1 Toggle Buttons -->
+                    <div class="stage-toggle-buttons">
+                        <button class="toggle-btn active" data-view="social">Socials</button>
+                        <button class="toggle-btn" data-view="thankyou">Thank You Page</button>
+                        <button class="toggle-btn" data-view="disqualify">Disqualifying Offer</button>
+                        <button class="toggle-btn" data-view="linktree">Linktree</button>
+                    </div>
+                </div>
+
+                <div class="phone-frame">
+                    <div class="phone-screen">
+                        <!-- Main iframe for Thank You and Disqualify pages -->
+                        <iframe 
+                            id="stage1-iframe"
+                            src="about:blank" 
+                            class="page-iframe"
+                            title="Stage 1 Content"
+                            style="display: none;">
+                        </iframe>
+                        
+                        <!-- Social mockup div (shows by default) -->
+                        <div id="stage1-social-div" class="page-iframe social-ad-mockup" style="display: block;">
+                            <!-- Facebook Ad Mockup -->
+                            <div class="facebook-ad">
+                                <div class="fb-header">
+                                    <div class="fb-profile">
+                                        <div class="fb-avatar">
+                                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHZpZXdCb3g9IjAgMCA1MCA1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgo8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojNENBRjUwIi8+CjxzdG9wIG9mZnNldD0iNTAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZjVhNjIzIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzRhOTBlMiIvPgo8L2xpbmVhckdyYWRpZW50Pgo8L2RlZnM+CjxjaXJjbGUgY3g9IjI1IiBjeT0iMjUiIHI9IjI1IiBmaWxsPSJ1cmwoI2JnKSIvPgo8Y2lyY2xlIGN4PSIzOCIgY3k9IjEyIiByPSI0IiBmaWxsPSIjRkZENzAwIi8+Cjx0ZXh0IHg9IjI1IiB5PSIzMiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNGPC90ZXh0Pgo8L3N2Zz4=" alt="SolarFlow" />
+                                        </div>
+                                        <div class="fb-info">
+                                            <div class="fb-name">SolarFlow</div>
+                                            <div class="fb-sponsored">Sponsored</div>
+                                            <div class="fb-library-id">Library ID: 418984130123537</div>
+                                        </div>
+                                    </div>
+                                    <div class="fb-menu">⋯</div>
+                                </div>
+                                <div class="fb-content">
+                                    <p class="fb-text">Thinking about solar for your home? Learn about the potential benefits and see if solar might be a good fit for your situation. Every home is different - find out what options could work for you.</p>
+                                </div>
+                                
+                                <div class="fb-media">
+                                    <div class="fb-video-container">
+                                        <div class="fb-video-placeholder">
+                                            <div class="fb-video-overlay">
+                                                <div class="fb-play-button">▶</div>
+                                            </div>
+                                            <div class="solarflow-logo-overlay">
+                                                <div class="solarflow-logo-bg">SolarFlow</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="fb-cta">
+                                    <div class="fb-cta-text">
+                                        <div class="fb-url">HTTPS://WWW.SOLARFLOW.XYZ/</div>
+                                        <div class="fb-headline">Learn How Solar Energy Reduces Costs and Boosts Home Value</div>
+                                        <div class="fb-description">Get information and see what might work</div>
+                                    </div>
+                                    <button class="fb-learn-more">Learn More</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Linktree mockup div (hidden by default) -->
+                        <div id="stage1-linktree-div" class="page-iframe linktree-mockup" style="display: none;" 
+                             onclick="handleLinktreeClick()" 
+                             title="Click to open Nation.com solar article">
+                            <img src="Linktree-pic.png" 
+                                 alt="Solar Linktree Screenshot" 
+                                 style="width: 102%; height: 102%; object-fit: cover; object-position: center top; transform: scale(1.02); pointer-events: none;"
+                                 onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'padding: 20px; text-align: center; color: #666;\'>Image not found: Linktree-pic.png</div>'" />
+                        </div>
+                    </div>
+                </div>
+                <div class="key-terms">
+                    <h3 class="section-title" id="stage1-title">Social Advertisement</h3>
+                    
+                    <div class="option-description" id="stage1-description">
+                        <p>Learn More button links out to content page.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stage 2: Content Page -->
+            <div class="flow-stage">
+                <div class="stage-header">
+                    <h2 class="stage-title">Content Page with Keyword Block</h2>
+                </div>
+
+                <div class="phone-frame">
+                    <div class="phone-screen">
+                        <iframe 
+                            src="rsoc-page.html?hideGlossary=true&hideDevNav=true" 
+                            class="page-iframe"
+                            title="RSOC Content Page">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div class="key-terms">
+                    <h3 class="section-title">Keyword Block</h3>
+                    
+                    <div class="option-description" style="border-left-color: #5865f2;">
+                        <p>An iframe containing search terms (ForceKeys). Clicks on one of these search terms is shown on the next page, the SERP. These are the related searches on content: RSOC.</p>
+                    </div>
+                    
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="keyword-block-header">Related searches</div>
+                        <div class="keyword-search-terms">
+                            <div class="keyword-search-term">
+                                <span style="margin-right: 8px; font-size: 1.1rem;">›</span>
+                                <span style="flex: 1; text-align: left;">Solar Panel Installation</span>
+                                <span style="margin-left: auto; font-size: 1.1rem;">›</span>
+                            </div>
+                            <div class="keyword-search-term">
+                                <span style="margin-right: 8px; font-size: 1.1rem;">›</span>
+                                <span style="flex: 1; text-align: left;">Residential Solar Panels Near Me</span>
+                                <span style="margin-left: auto; font-size: 1.1rem;">›</span>
+                            </div>
+                            <div class="keyword-search-term">
+                                <span style="margin-right: 8px; font-size: 1.1rem;">›</span>
+                                <span style="flex: 1; text-align: left;">Solar Panel Energy Savings</span>
+                                <span style="margin-left: auto; font-size: 1.1rem;">›</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 25px;">
+                        <h3 class="section-title">ForceKeys</h3>
+                        <div class="option-description" style="border-left-color: #0693e3;">
+                            <p>Optimized search terms / keywords. These are passed in the URL and are requested to be shown by Google.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stage 3: SERP Page -->
+            <div class="flow-stage">
+                <div class="stage-header">
+                    <h2 class="stage-title">SERP (Search Engine Results Page)</h2>
+                </div>
+
+                <div class="phone-frame">
+                    <div class="phone-screen">
+                        <iframe 
+                            src="serp.html?hideDevNav=true" 
+                            class="page-iframe"
+                            title="Nation.com SERP">
+                        </iframe>
+                    </div>
+                </div>
+                <div class="key-terms">
+                    <h3 class="section-title">Monetization Event</h3>
+                    
+                    <div class="option-description" style="border-left-color: #0e50c4;">
+                        <p>A user clicks on the <button class="serp-visit-btn">Visit Website</button> button. This is the monetization event where we calculate RPC. User is taken to the advertiser's page.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Scroll Indicators -->
+    <div class="scroll-indicators" id="scrollIndicators">
+        <div class="scroll-dot active" data-stage="0"></div>
+        <div class="scroll-dot" data-stage="1"></div>
+        <div class="scroll-dot" data-stage="2"></div>
+    </div>
+
+    <script>
+        // Simple, clean JavaScript implementation
+        let autoRotateInterval = null;
+        let currentView = 0;
+        const views = ['social', 'thankyou', 'disqualify', 'linktree'];
+        const ROTATION_INTERVAL = 4000; // 4 seconds
+
+        // Main view switching function - SIMPLIFIED
+        function switchView(viewName) {
+            console.log('Switching to view:', viewName);
+            
+            // Stop auto-rotation when user manually switches
+            stopAutoRotation();
+            
+            // Update button states
+            document.querySelectorAll('.toggle-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.view === viewName);
+            });
+            // Update content and description
+            const iframe = document.getElementById('stage1-iframe');
+            const socialDiv = document.getElementById('stage1-social-div');
+            const linktreeDiv = document.getElementById('stage1-linktree-div');
+            const titleElement = document.getElementById('stage1-title');
+            const descriptionElement = document.getElementById('stage1-description');
+            
+            // Hide all content first
+            iframe.style.display = 'none';
+            socialDiv.style.display = 'none';
+            linktreeDiv.style.display = 'none';
+            
+            // Show appropriate content and update info
+            switch(viewName) {
+                case 'social':
+                    socialDiv.style.display = 'block';
+                    titleElement.textContent = 'Social Advertisement';
+                    descriptionElement.innerHTML = '<p>Learn More button links out to content page.</p>';
+                    break;
+                    
+                case 'thankyou':
+                    iframe.style.display = 'block';
+                    iframe.src = 'flow.html?step=6&hideDevNav=true';
+                    titleElement.textContent = 'Thank You Page';
+                    descriptionElement.innerHTML = '<p>One option to place content articles within the flow. Can be slotted in to any part of the flow on any vertical.</p><div style="text-align: right; margin-top: 10px;"><a href="index.html" class="path-button">Path</a></div>';
+                    break;
+                    
+                case 'disqualify':
+                    iframe.style.display = 'block';
+                    iframe.src = 'flow.html?step=4&autoSelect=mostly-shade&showPopup=true&hideDevNav=true';
+                    titleElement.textContent = 'Disqualifying Offer';
+                    descriptionElement.innerHTML = '<p>User can be shown a link to a content article on any vertical if they do not qualify for an offer.</p><div style="text-align: right; margin-top: 10px;"><a href="index.html" class="path-button">Path</a></div>';
+                    break;
+                    
+                case 'linktree':
+                    linktreeDiv.style.display = 'block';
+                    titleElement.textContent = 'Linktree';
+                    descriptionElement.innerHTML = '<p>User clicks on Linktree button linking out to article.</p>';
+                    break;
+            }
+            
+            // Update current view index for auto-rotation
+            currentView = views.indexOf(viewName);
+        }
+        // Auto-rotation functions
+        function startAutoRotation() {
+            stopAutoRotation();
+            autoRotateInterval = setInterval(() => {
+                currentView = (currentView + 1) % views.length;
+                switchView(views[currentView]);
+            }, ROTATION_INTERVAL);
+            console.log('Auto-rotation started');
+        }
+
+        function stopAutoRotation() {
+            if (autoRotateInterval) {
+                clearInterval(autoRotateInterval);
+                autoRotateInterval = null;
+                console.log('Auto-rotation stopped');
+            }
+        }
+
+        // Linktree click handler
+        function handleLinktreeClick() {
+            stopAutoRotation();
+            window.open('https://www.nation.com/how-solar-energy-reduces-costs-and-boosts-home-value-en-us/', '_blank');
+        }
+
+        // Mobile scroll functions
+        function scrollToStage(stageIndex) {
+            const flowStages = document.querySelector('.flow-stages');
+            const scrollDots = document.querySelectorAll('.scroll-dot');
+            
+            if (flowStages && window.innerWidth <= 768) {
+                const targetScroll = window.innerWidth * stageIndex;
+                
+                flowStages.scrollTo({
+                    left: targetScroll,
+                    behavior: 'smooth'
+                });
+                
+                // Update active dot
+                scrollDots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === stageIndex);
+                });
+            }
+        }
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('SolarFlow Overview initialized');
+            
+            // Set up toggle button event listeners
+            document.querySelectorAll('.toggle-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const viewName = this.dataset.view;
+                    if (viewName) {
+                        switchView(viewName);
+                    }
+                });
+            });
+            
+            // Set up mobile scroll indicators
+            document.querySelectorAll('.scroll-dot').forEach((dot, index) => {
+                dot.addEventListener('click', function() {
+                    scrollToStage(index);
+                });
+            });
+            
+            // Set up mobile scroll listener
+            const flowStages = document.querySelector('.flow-stages');
+            if (flowStages) {
+                flowStages.addEventListener('scroll', function() {
+                    if (window.innerWidth <= 768) {
+                        const scrollLeft = flowStages.scrollLeft;
+                        const stageWidth = flowStages.clientWidth;
+                        const currentStage = Math.round(scrollLeft / stageWidth);
+                        
+                        document.querySelectorAll('.scroll-dot').forEach((dot, index) => {
+                            dot.classList.toggle('active', index === currentStage);
+                        });
+                    }
+                });
+            }
+            
+            // Start with social view and begin auto-rotation
+            switchView('social');
+            
+            // Start auto-rotation after a short delay
+            setTimeout(() => {
+                startAutoRotation();
+            }, 2000);
+            // Center iframe content when loaded
+            document.querySelectorAll('.page-iframe').forEach(iframe => {
+                iframe.addEventListener('load', function() {
+                    try {
+                        const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                        const scrollWidth = iframeDoc.documentElement.scrollWidth;
+                        const clientWidth = iframeDoc.documentElement.clientWidth;
+                        const centerPosition = (scrollWidth - clientWidth) / 2;
+                        
+                        iframeDoc.documentElement.scrollLeft = centerPosition;
+                        iframeDoc.body.scrollLeft = centerPosition;
+                    } catch (e) {
+                        // Handle cross-origin restrictions silently
+                    }
+                });
+            });
+        });
+
+        // Handle window resize for mobile layout
+        window.addEventListener('resize', function() {
+            // Reset mobile scroll position on orientation change
+            if (window.innerWidth <= 768) {
+                const flowStages = document.querySelector('.flow-stages');
+                if (flowStages) {
+                    setTimeout(() => {
+                        flowStages.scrollLeft = 0;
+                        document.querySelectorAll('.scroll-dot').forEach((dot, index) => {
+                            dot.classList.toggle('active', index === 0);
+                        });
+                    }, 100);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
