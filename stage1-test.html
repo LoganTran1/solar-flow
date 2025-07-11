@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stage 1 Test - SolarFlow</title>
+    
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            background: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .test-container {
+            max-width: 500px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .stage-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .stage-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .stage-toggle-buttons {
+            display: flex;
+            gap: 3px;
+            margin-bottom: 20px;
+            flex-wrap: nowrap;
+            justify-content: center;
+        }
+
+        .toggle-btn {
+            padding: 4px 8px;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            background: #f8f9fa;
+            color: #495057;
+            font-size: 0.65rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            min-height: 28px;
+            flex: 1;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .toggle-btn:hover {
+            border-color: #f5a623;
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .toggle-btn.active {
+            border-color: #f5a623;
+            background: #f5a623;
+            color: white;
+        }
+
+        .phone-frame {
+            background: #1f1f1f;
+            border-radius: 35px;
+            padding: 8px;
+            margin: 0 auto;
+            width: 300px;
+            height: 650px;
+            position: relative;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            border-radius: 27px;
+            overflow: hidden;
+            position: relative;
+            background: white;
+        }
+
+        .page-iframe {
+            width: 430px;
+            height: 932px;
+            border: none;
+            border-radius: 27px;
+            transform: scale(0.675);
+            transform-origin: center center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -215px;
+            margin-top: -456px;
+        }
+
+        /* Social Ad Mockup Styles */
+        .social-ad-mockup {
+            background: #f0f2f5;
+            padding: 0;
+            overflow-y: auto;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            width: 430px;
+            height: 932px;
+            border: none;
+            border-radius: 27px;
+            transform: scale(0.675);
+            transform-origin: center center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -215px;
+            margin-top: -456px;
+        }
+
+        .facebook-ad {
+            background: white;
+            margin: 8px;
+            border-radius: 8px;
+            overflow: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 900px;
+        }
+
+        .fb-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 16px;
+            flex-shrink: 0;
+        }
+
+        .fb-profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .fb-avatar img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .fb-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .fb-name {
+            font-weight: 600;
+            font-size: 18px;
+            color: #1c1e21;
+            line-height: 1.2;
+        }
+
+        .fb-sponsored {
+            font-size: 15px;
+            color: #65676b;
+            line-height: 1.2;
+        }
+
+        .fb-library-id {
+            font-size: 13px;
+            color: #65676b;
+            line-height: 1.2;
+            margin-top: 2px;
+        }
+
+        .fb-menu {
+            color: #65676b;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 12px;
+            border-radius: 50%;
+        }
+
+        .fb-menu:hover {
+            background: #f2f3f4;
+        }
+
+        .fb-content {
+            padding: 0 16px 12px;
+            flex-shrink: 0;
+        }
+
+        .fb-text {
+            font-size: 15px;
+            line-height: 1.3;
+            color: #1c1e21;
+            margin: 0;
+        }
+
+        .fb-media {
+            position: relative;
+            flex: 1;
+            margin-bottom: 12px;
+            min-height: 520px;
+        }
+
+        .fb-video-container {
+            position: relative;
+            background: transparent !important;
+            height: 100% !important;
+            width: 100% !important;
+            min-height: 520px !important;
+        }
+
+        .fb-video-placeholder {
+            width: 100% !important;
+            height: 100% !important;
+            background: url('https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=600&h=800&fit=crop&crop=entropy') center/cover !important;
+            position: relative !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            min-height: 520px !important;
+        }
+
+        .fb-video-overlay {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            background: rgba(0,0,0,0.2) !important;
+        }
+
+        .fb-play-button {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.2s;
+            padding-left: 4px;
+        }
+
+        .fb-play-button:hover {
+            background: white;
+            transform: scale(1.05);
+        }
+
+        .solarflow-logo-overlay {
+            position: absolute;
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .solarflow-logo-bg {
+            background: #f5a623;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 16px;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .fb-cta {
+            padding: 20px 16px;
+            border-top: 1px solid #e4e6ea;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+        }
+
+        .fb-cta-text {
+            flex: 1;
+        }
+
+        .fb-url {
+            font-size: 13px;
+            color: #65676b;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .fb-headline {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1c1e21;
+            margin-bottom: 4px;
+            line-height: 1.2;
+        }
+
+        .fb-description {
+            font-size: 15px;
+            color: #65676b;
+            line-height: 1.2;
+        }
+
+        .fb-learn-more {
+            background: #e4e6ea;
+            color: #65676b;
+            border: 1px solid #dadde1;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .fb-learn-more:hover {
+            background: #d8dadf;
+        }
+
+        .key-terms {
+            margin-top: 20px;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .option-description {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #f5a623;
+            margin-bottom: 15px;
+        }
+
+        .option-description p {
+            margin: 0;
+            color: #555;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="stage-header">
+            <div class="stage-toggle-buttons">
+                <button class="toggle-btn active" onclick="showSocial()">Socials</button>
+                <button class="toggle-btn" onclick="showThankYou()">Thank You Page</button>
+                <button class="toggle-btn" onclick="showDisqualify()">Disqualifying Offer</button>
+                <button class="toggle-btn" onclick="showLinktree()">Linktree</button>
+            </div>
+        </div>
+
+        <div class="phone-frame">
+            <div class="phone-screen">
+                <!-- Main iframe for Thank You and Disqualify pages -->
+                <iframe 
+                    id="stage1-iframe"
+                    src="about:blank" 
+                    class="page-iframe"
+                    title="Stage 1 Content"
+                    style="display: none;">
+                </iframe>
+                
+                <!-- Social mockup div (shows by default) -->
+                <div id="stage1-social-div" class="page-iframe social-ad-mockup" style="display: block;">
+                    <div class="facebook-ad">
+                        <div class="fb-header">
+                            <div class="fb-profile">
+                                <div class="fb-avatar">
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHZpZXdCb3g9IjAgMCA1MCA1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgo8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojNENBRjUwIi8+CjxzdG9wIG9mZnNldD0iNTAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZjVhNjIzIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzRhOTBlMiIvPgo8L2xpbmVhckdyYWRpZW50Pgo8L2RlZnM+CjxjaXJjbGUgY3g9IjI1IiBjeT0iMjUiIHI9IjI1IiBmaWxsPSJ1cmwoI2JnKSIvPgo8Y2lyY2xlIGN4PSIzOCIgY3k9IjEyIiByPSI0IiBmaWxsPSIjRkZENzAwIi8+Cjx0ZXh0IHg9IjI1IiB5PSIzMiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNGPC90ZXh0Pgo8L3N2Zz4=" alt="SolarFlow" />
+                                </div>
+                                <div class="fb-info">
+                                    <div class="fb-name">SolarFlow</div>
+                                    <div class="fb-sponsored">Sponsored</div>
+                                    <div class="fb-library-id">Library ID: 418984130123537</div>
+                                </div>
+                            </div>
+                            <div class="fb-menu">⋯</div>
+                        </div>
+                        
+                        <div class="fb-content">
+                            <p class="fb-text">Thinking about solar for your home? Learn about the potential benefits and see if solar might be a good fit for your situation. Every home is different - find out what options could work for you.</p>
+                        </div>
+                        
+                        <div class="fb-media">
+                            <div class="fb-video-container">
+                                <div class="fb-video-placeholder">
+                                    <div class="fb-video-overlay">
+                                        <div class="fb-play-button">▶</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="fb-cta">
+                            <div class="fb-cta-text">
+                                <div class="fb-url">HTTPS://WWW.SOLARFLOW.XYZ/</div>
+                                <div class="fb-headline">Learn How Solar Energy Reduces Costs and Boosts Home Value</div>
+                                <div class="fb-description">Get information and see what might work</div>
+                            </div>
+                            <button class="fb-learn-more">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Linktree mockup div (hidden by default) -->
+                <div id="stage1-linktree-div" class="page-iframe" style="display: none !important; visibility: hidden !important; width: 430px; height: 932px; border: none; border-radius: 27px; transform: scale(0.725); transform-origin: center center; position: absolute; top: 50%; left: 50%; margin-left: -215px; margin-top: -466px;" 
+                     onclick="handleLinktreeClick()" 
+                     title="Click to open Nation.com solar article">
+                    <img src="Linktree-pic.png" 
+                         alt="Solar Linktree Screenshot" 
+                         style="width: 100%; height: 100%; object-fit: cover; object-position: center center; pointer-events: none;"
+                         onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'padding: 20px; text-align: center; color: #666;\'>Image not found: Linktree-pic.png</div>'" />
+                </div>
+            </div>
+        </div>
+
+        <div class="key-terms">
+            <h3 class="section-title" id="stage1-title">Ad on Socials</h3>
+            
+            <div class="option-description" id="stage1-description">
+                <p>Learn More button links out to content page.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSocial() {
+            document.getElementById('stage1-iframe').style.display = 'none';
+            document.getElementById('stage1-social-div').style.display = 'block';
+            document.getElementById('stage1-linktree-div').style.display = 'none';
+            document.getElementById('stage1-linktree-div').style.visibility = 'hidden';
+            
+            // Update buttons
+            document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector('[onclick="showSocial()"]').classList.add('active');
+            
+            // Update text
+            document.getElementById('stage1-title').textContent = 'Ad on Socials';
+            document.getElementById('stage1-description').innerHTML = '<p>Learn More button links out to content page.</p>';
+        }
+        
+        function showThankYou() {
+            document.getElementById('stage1-social-div').style.display = 'none';
+            document.getElementById('stage1-linktree-div').style.display = 'none';
+            document.getElementById('stage1-linktree-div').style.visibility = 'hidden';
+            document.getElementById('stage1-iframe').style.display = 'block';
+            document.getElementById('stage1-iframe').src = 'flow.html?step=6&hideDevNav=true';
+            
+            // Update buttons
+            document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector('[onclick="showThankYou()"]').classList.add('active');
+            
+            // Update text
+            document.getElementById('stage1-title').textContent = 'Thank You Page';
+            document.getElementById('stage1-description').innerHTML = '<p>One option to place content articles within the flow. Can be slotted in to any part of the flow on any vertical.</p>';
+        }
+        
+        function showDisqualify() {
+            document.getElementById('stage1-social-div').style.display = 'none';
+            document.getElementById('stage1-linktree-div').style.display = 'none';
+            document.getElementById('stage1-linktree-div').style.visibility = 'hidden';
+            document.getElementById('stage1-iframe').style.display = 'block';
+            document.getElementById('stage1-iframe').src = 'flow.html?step=4&autoSelect=mostly-shade&showPopup=true&hideDevNav=true';
+            
+            // Update buttons
+            document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector('[onclick="showDisqualify()"]').classList.add('active');
+            
+            // Update text
+            document.getElementById('stage1-title').textContent = 'Disqualifying Offer';
+            document.getElementById('stage1-description').innerHTML = '<p>User can be shown a link to a content article on any vertical if they do not qualify for an offer.</p>';
+        }
+        
+        function showLinktree() {
+            document.getElementById('stage1-iframe').style.display = 'none';
+            document.getElementById('stage1-social-div').style.display = 'none';
+            
+            const linktreeDiv = document.getElementById('stage1-linktree-div');
+            linktreeDiv.style.display = 'block';
+            linktreeDiv.style.visibility = 'visible';
+            
+            // Update buttons
+            document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector('[onclick="showLinktree()"]').classList.add('active');
+            
+            // Update text
+            document.getElementById('stage1-title').textContent = 'Linktree';
+            document.getElementById('stage1-description').innerHTML = '<p>User clicks on Linktree button linking out to article.</p>';
+        }
+
+        function handleLinktreeClick() {
+            window.open('https://www.nation.com/how-solar-energy-reduces-costs-and-boosts-home-value-en-us/', '_blank');
+        }
+    </script>
+</body>
+</html>
